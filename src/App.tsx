@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme/theme";
+import GlobalStyle from "./theme/global";
 
 // import styled from "styled-components";
 
@@ -10,12 +13,15 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      {/* input */}
-      {/* list */}
-      {/* <Test>Yo yo yo</Test> */}
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <div className="App">
+        <Header title="WHAT A TODO" />
+        {/* input */}
+        {/* list */}
+        {/* <Test>Yo yo yo</Test> */}
+      </div>
+    </ThemeProvider>
   );
 }
 
