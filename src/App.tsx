@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import Header from "./components/Header";
+
 // import styled from "styled-components";
 
 // const Test = styled.p`
@@ -9,7 +11,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <p>hey</p>
+      <Header />
+      {/* input */}
+      {/* list */}
       {/* <Test>Yo yo yo</Test> */}
     </div>
   );
