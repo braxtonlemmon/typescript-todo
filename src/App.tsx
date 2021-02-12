@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import { Wrapper } from "./App.styles";
 import Header from "./components/Header/Header";
 import Form from "./components/Form/Form";
+import Display from "./components/Display/Display";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
 import GlobalStyle from "./theme/global";
@@ -20,10 +21,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div className="App">
+      <Wrapper>
         <Header title="WHAT A TODO" />
         <Form addTodoToList={addTodoToList} />
-      </div>
+        <Display todoList={todoList} />
+      </Wrapper>
     </ThemeProvider>
   );
 }
