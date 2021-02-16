@@ -12,4 +12,8 @@ export const Wrapper = styled.div`
     text-align: center;
     margin-bottom: 10px;
   }
+  ul {
+    width: 100%;
+    max-width: 300px;
+  }
 `;
