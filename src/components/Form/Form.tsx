@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Wrapper } from "./Form.styles";
 import Button from "../Shared/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as actions from "../../actions/index";
+import { Todo } from "../../actions/index";
 
 interface FormProps {
   addTodoToList: (arg0: string) => void;
@@ -24,7 +25,12 @@ const Form: React.FC<FormProps> = ({ addTodoToList }): React.ReactElement => {
 
   const handleSubmit = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
-    dispatch({ type: actions.ADD_TODO, item: todoItem });
+    const payload: Todo = {
+      todoItem: todoItem,
+      timestamp: Date.now(),
+      completed: false,
+    };
+    dispatch({ type: actions.ADD_TODO, payload });
     setTodoItem("");
   };
 

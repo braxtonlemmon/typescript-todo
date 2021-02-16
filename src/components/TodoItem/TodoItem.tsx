@@ -10,9 +10,13 @@ const TodoItem: React.FC<TodoItemProps> = ({
   todo,
   index,
 }): React.ReactElement => {
+  const handleComplete = (e: React.SyntheticEvent<HTMLElement>): void => {
+    console.log(e.timeStamp);
+  };
+
   return (
     <Wrapper>
-      <input id={`todo-${index}`} type="checkbox" />
+      <input id={`todo-${index}`} type="checkbox" onChange={handleComplete} />
       <label htmlFor={`todo-${index}`}>{todo}</label>
     </Wrapper>
   );
