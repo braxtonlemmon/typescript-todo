@@ -24,7 +24,6 @@ const TodoItem: React.FC<TodoItemProps> = ({
     <Wrapper>
       <input id={`todo-${index}`} type="checkbox" onChange={handleComplete} />
       <label htmlFor={`todo-${index}`}>{todo}</label>
-      <p>{timestamp}</p>
     </Wrapper>
   );
 };
