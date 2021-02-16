@@ -13,7 +13,7 @@ export const addTodo = (newTodo: Todo): TodoActionTypes => {
   };
 };
 
-export const completeTodo = (timestamp: number): TodoActionTypes => {
+export const completeTodo = (timestamp: string): TodoActionTypes => {
   return {
     type: COMPLETE_TODO,
     meta: {
@@ -22,7 +22,7 @@ export const completeTodo = (timestamp: number): TodoActionTypes => {
   };
 };
 
-export const deleteTodo = (timestamp: number): TodoActionTypes => {
+export const deleteTodo = (timestamp: string): TodoActionTypes => {
   return {
     type: DELETE_TODO,
     meta: {

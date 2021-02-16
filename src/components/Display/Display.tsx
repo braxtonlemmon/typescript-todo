@@ -20,6 +20,7 @@ const Display: React.FC<DisplayProps> = ({ todoList }): React.ReactElement => {
             <TodoItem
               todo={todo.todoItem}
               index={index}
+              timestamp={todo.timestamp}
               key={`todoItem-${index}`}
             />
           );

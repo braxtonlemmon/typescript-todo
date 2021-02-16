@@ -27,7 +27,7 @@ const Form: React.FC<FormProps> = ({ addTodoToList }): React.ReactElement => {
     e.preventDefault();
     const payload: Todo = {
       todoItem: todoItem,
-      timestamp: Date.now(),
+      timestamp: Date.now().toString(),
       completed: false,
     };
     dispatch({ type: actions.ADD_TODO, payload });

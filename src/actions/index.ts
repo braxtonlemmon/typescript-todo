@@ -4,7 +4,7 @@ export const DELETE_TODO = "DELETE_TODO";
 
 export interface Todo {
   todoItem: string;
-  timestamp: number;
+  timestamp: string;
   completed: boolean;
 }
 
@@ -20,14 +20,14 @@ interface AddTodoAction {
 interface CompleteTodoAction {
   type: typeof COMPLETE_TODO;
   meta: {
-    timestamp: number;
+    timestamp: string;
   };
 }
 
 interface DeleteTodoAction {
   type: typeof DELETE_TODO;
   meta: {
-    timestamp: number;
+    timestamp: string;
   };
 }
 
