@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Wrapper } from "./App.styles";
 import Header from "./components/Header/Header";
+import UserForm from "./components/UserForm/UserForm";
 import Form from "./components/Form/Form";
 import Display from "./components/Display/Display";
 import { ThemeProvider } from "styled-components";
@@ -10,20 +11,15 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 
 function App() {
-  const [todoList, setTodoList] = useState<string[]>([]);
-
-  const addTodoToList = (todoItem: string): void => {
-    setTodoList([...todoList, todoItem]);
-  };
-
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
           <Header title="WHAT A TODO" />
-          <Form addTodoToList={addTodoToList} />
-          <Display todoList={todoList} />
+          <UserForm />
+          <Form />
+          <Display />
         </Wrapper>
       </ThemeProvider>
     </Provider>

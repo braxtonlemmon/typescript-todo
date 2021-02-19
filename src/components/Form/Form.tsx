@@ -5,17 +5,13 @@ import { useDispatch } from "react-redux";
 import * as actions from "../../constants/ActionTypes";
 import { Todo } from "../../actions/todoActions";
 
-interface FormProps {
-  addTodoToList: (arg0: string) => void;
-}
-
 interface EventObject {
   target: {
     value: string;
   };
 }
 
-const Form: React.FC<FormProps> = ({ addTodoToList }): React.ReactElement => {
+const Form: React.FC = (): React.ReactElement => {
   const [todoItem, setTodoItem] = useState("");
   const dispatch = useDispatch();
 

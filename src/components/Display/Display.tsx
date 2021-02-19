@@ -5,11 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { Todo } from "../../actions/todoActions";
 
-interface DisplayProps {
-  todoList: string[];
-}
-
-const Display: React.FC<DisplayProps> = ({ todoList }): React.ReactElement => {
+const Display: React.FC = (): React.ReactElement => {
   const items = useSelector((state: RootState) => state.todoReducer.todoItems);
 
   return (
