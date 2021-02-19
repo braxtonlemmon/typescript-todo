@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper } from "./TodoItem.styles";
 import { useDispatch } from "react-redux";
-import { COMPLETE_TODO, DELETE_TODO } from "../../actions/index";
+import { COMPLETE_TODO, DELETE_TODO } from "../../constants/ActionTypes";
 
 interface TodoItemProps {
   todo: string;

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Wrapper } from "./Form.styles";
 import Button from "../Shared/Button";
 import { useDispatch } from "react-redux";
-import * as actions from "../../actions/index";
-import { Todo } from "../../actions/index";
+import * as actions from "../../constants/ActionTypes";
+import { Todo } from "../../actions/todoActions";
 
 interface FormProps {
   addTodoToList: (arg0: string) => void;

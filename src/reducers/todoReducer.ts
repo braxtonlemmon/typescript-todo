@@ -1,13 +1,5 @@
-// import * as actions from "../actions";
-// import { Todo } from "../store/types";
-
-import {
-  TodoState,
-  TodoActionTypes,
-  ADD_TODO,
-  COMPLETE_TODO,
-  DELETE_TODO,
-} from "../actions/index";
+import { TodoState, TodoActionTypes } from "../actions/todoActions";
+import * as actions from "../constants/ActionTypes";
 
 const initialState: TodoState = {
   todoItems: [],
@@ -18,11 +10,11 @@ export function todoReducer(
   action: TodoActionTypes
 ): TodoState {
   switch (action.type) {
-    case ADD_TODO:
+    case actions.ADD_TODO:
       return {
         todoItems: [...state.todoItems, action.payload],
       };
-    case COMPLETE_TODO:
+    case actions.COMPLETE_TODO:
       return {
         todoItems: state.todoItems.map((item) => {
           console.log(item.timestamp);
@@ -32,7 +24,7 @@ export function todoReducer(
             : item;
         }),
       };
-    case DELETE_TODO:
+    case actions.DELETE_TODO:
       return {
         todoItems: state.todoItems.filter(
           (todo) => todo.timestamp !== action.meta.timestamp
