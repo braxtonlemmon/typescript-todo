@@ -11,7 +11,7 @@ import { store } from "./store/store";
 
 function App() {
   const [todoList, setTodoList] = useState<string[]>([]);
-
+  console.log(store);
   const addTodoToList = (todoItem: string): void => {
     setTodoList([...todoList, todoItem]);
   };
