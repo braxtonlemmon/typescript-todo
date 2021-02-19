@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper } from "./App.styles";
 import Header from "./components/Header/Header";
 import UserForm from "./components/UserForm/UserForm";
+import UserInfo from "./components/UserInfo/UserInfo";
 import Form from "./components/Form/Form";
 import Display from "./components/Display/Display";
 import { ThemeProvider } from "styled-components";
@@ -23,6 +24,7 @@ function App() {
         {!isInitiated && <UserForm />}
         {isInitiated && (
           <>
+            <UserInfo />
             <Form />
             <Display />
           </>
