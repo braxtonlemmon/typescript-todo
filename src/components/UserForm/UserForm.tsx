@@ -32,6 +32,7 @@ const UserForm: React.FC = (): React.ReactElement => {
       maxItems,
     };
     dispatch({ type: actions.ADD_USER, payload });
+    dispatch({ type: actions.INITIATE_SYSTEM });
     setFirstName("");
     setLastname("");
     setMaxItems(0);
