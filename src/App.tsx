@@ -11,14 +11,10 @@ import { store } from "./store/store";
 
 function App() {
   const [todoList, setTodoList] = useState<string[]>([]);
-  console.log(store);
+
   const addTodoToList = (todoItem: string): void => {
     setTodoList([...todoList, todoItem]);
   };
-
-  useEffect(() => {
-    console.log(todoList);
-  }, [todoList]);
 
   return (
     <Provider store={store}>

@@ -17,8 +17,6 @@ export function todoReducer(
     case actions.COMPLETE_TODO:
       return {
         todoItems: state.todoItems.map((item) => {
-          console.log(item.timestamp);
-          console.log(action.meta.timestamp);
           return item.timestamp === action.meta.timestamp
             ? { ...item, completed: !item.completed }
             : item;
