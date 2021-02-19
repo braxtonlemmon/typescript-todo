@@ -14,7 +14,12 @@ const UserInfo: React.FC = (): React.ReactElement => {
   return (
     <Wrapper>
       <p>{`Hey, ${user.firstName} ${user.lastName}`}</p>
-      <p>{`You can add ${calculateItems()} more todo items.`}</p>
+      {calculateItems() > 0 && (
+        <p>{`You can add ${calculateItems()} more todo items.`}</p>
+      )}
+      {calculateItems() === 0 && (
+        <p>You've maxed out! Delete items to add more to your list.</p>
+      )}
     </Wrapper>
   );
 };

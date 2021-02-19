@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Wrapper } from "./Form.styles";
 import Button from "../Shared/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../constants/ActionTypes";
 import { Todo } from "../../actions/todoActions";
+import { RootState } from "../../store/store";
 
 interface EventObject {
   target: {
@@ -14,7 +15,10 @@ interface EventObject {
 const Form: React.FC = (): React.ReactElement => {
   const [todoItem, setTodoItem] = useState("");
   const dispatch = useDispatch();
-
+  const items = useSelector((state: RootState) => state.todoReducer.todoItems);
+  const maxItems = useSelector(
+    (state: RootState) => state.userReducer.maxItems
+  );
   const handleChange = (e: EventObject) => {
     setTodoItem(e.target.value);
   };
@@ -32,14 +36,18 @@ const Form: React.FC = (): React.ReactElement => {
 
   return (
     <Wrapper>
-      <label htmlFor="todoItem">Tell me what you want to do:</label>
-      <input
-        type="text"
-        id="todoItem"
-        onChange={handleChange}
-        value={todoItem}
-      />
-      <Button onClick={handleSubmit}>Add Item</Button>
+      {items.length < maxItems && (
+        <>
+          <label htmlFor="todoItem">Tell me what you want to do:</label>
+          <input
+            type="text"
+            id="todoItem"
+            onChange={handleChange}
+            value={todoItem}
+          />
+          <Button onClick={handleSubmit}>Add Item</Button>
+        </>
+      )}
     </Wrapper>
   );
 };
