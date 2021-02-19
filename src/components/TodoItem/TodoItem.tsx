@@ -2,19 +2,15 @@ import React from "react";
 import { Wrapper } from "./TodoItem.styles";
 import { useDispatch } from "react-redux";
 import { COMPLETE_TODO, DELETE_TODO } from "../../constants/ActionTypes";
+import { Todo } from "../../actions/todoActions";
 
 interface TodoItemProps {
-  todo: string;
-  index: number;
-  timestamp: string;
+  todo: Todo;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({
-  todo,
-  index,
-  timestamp,
-}): React.ReactElement => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo }): React.ReactElement => {
   const dispatch = useDispatch();
+  const { timestamp } = todo;
 
   const handleComplete = (): void => {
     dispatch({ type: COMPLETE_TODO, meta: { timestamp } });
@@ -26,8 +22,12 @@ const TodoItem: React.FC<TodoItemProps> = ({
 
   return (
     <Wrapper>
-      <input id={`todo-${index}`} type="checkbox" onChange={handleComplete} />
-      <label htmlFor={`todo-${index}`}>{todo}</label>
+      <input
+        id={`todo-${todo.timestamp}`}
+        type="checkbox"
+        onChange={handleComplete}
+      />
+      <label htmlFor={`todo-${todo.timestamp}`}>{todo.todoItem}</label>
       <p className="wastebasket" onClick={handleDelete}>
         🗑️
       </p>

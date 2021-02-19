@@ -16,15 +16,8 @@ const Display: React.FC<DisplayProps> = ({ todoList }): React.ReactElement => {
     <Wrapper>
       <h2>TODO:</h2>
       <ul>
-        {items.map((todo: Todo, index: number) => {
-          return (
-            <TodoItem
-              todo={todo.todoItem}
-              index={index}
-              timestamp={todo.timestamp}
-              key={`todoItem-${index}`}
-            />
-          );
+        {items.map((todo: Todo) => {
+          return <TodoItem todo={todo} key={`todoItem-${todo.timestamp}`} />;
         })}
       </ul>
     </Wrapper>
